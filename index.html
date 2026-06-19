@@ -464,6 +464,114 @@
       background: rgba(255,255,255,0.5);
       margin: 4px 0;
     }
+
+    /* ═══════════════════════════════════
+       ÁREAS DE INTERÉS — ACORDEÓN
+    ═══════════════════════════════════ */
+    #intereses { gap: 14px; }
+
+    .area-card {
+      overflow: hidden;
+      border-radius: 22px;
+    }
+
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .area-emoji {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .area-title {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: var(--text);
+    }
+
+    .area-arrow {
+      width: 20px;
+      height: 20px;
+      color: var(--pink-accent);
+      flex-shrink: 0;
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .area-card.open .area-arrow { transform: rotate(180deg); }
+
+    .area-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(.4,0,.2,1);
+    }
+    .area-card.open .area-body { max-height: 900px; }
+
+    .area-inner {
+      padding: 0 20px 22px;
+      border-top: 1px solid rgba(255,255,255,0.5);
+      margin: 0 20px;
+    }
+
+    .area-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      padding-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .area-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .area-photos.single { grid-template-columns: 1fr; }
+
+    .area-photo {
+      height: 110px;
+      border-radius: 14px;
+      border: 2px dashed rgba(214,51,132,0.22);
+      background: rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 10px;
+      color: rgba(160,30,80,0.4);
+      overflow: hidden;
+      text-align: center;
+    }
+    .area-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .area-photo svg { width: 22px; height: 22px; opacity: 0.4; }
+
+    /* Nav con 5 ítems — íconos un poco más chicos */
+    .nav a { font-size: 9px; }
+    .nav a svg { width: 20px; height: 20px; }
   </style>
 </head>
 <body>
@@ -738,6 +846,185 @@
     </div>
   </section>
 
+  <!-- ══════════ ÁREAS DE INTERÉS ══════════ -->
+  <section id="intereses">
+    <div>
+      <p class="sec-label">Exploración</p>
+      <h2 class="sec-title">Áreas de interés</h2>
+    </div>
+
+    <!-- 1. Sketch & Dibujo -->
+    <div class="glass area-card">
+      <button class="area-header" aria-expanded="false">
+        <div class="area-emoji">✏️</div>
+        <span class="area-title">Sketch & Dibujo de productos</span>
+        <svg class="area-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="area-body">
+        <div class="area-inner">
+          <p class="area-desc">Me encanta capturar ideas rápidas a mano: bocetos de concepto, vistas de producto, explosiones isométricas. El dibujo es mi primer lenguaje de diseño, donde todo empieza antes de pasar al 3D o la pantalla.</p>
+          <div class="area-photos">
+            <div class="area-photo">
+              <!-- <img src="sketch1.jpg" alt="Sketch"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="sketch2.jpg" alt="Sketch"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="sketch3.jpg" alt="Sketch"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="sketch4.jpg" alt="Sketch"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Viajes al exterior -->
+    <div class="glass area-card">
+      <button class="area-header" aria-expanded="false">
+        <div class="area-emoji">✈️</div>
+        <span class="area-title">Viajes para cursos de idiomas</span>
+        <svg class="area-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="area-body">
+        <div class="area-inner">
+          <p class="area-desc">Viajé sola al exterior para perfeccionar mis idiomas. Fue una experiencia profundamente gratificante: aprender a moverme de forma independiente en otra cultura me dio una perspectiva nueva, mucha confianza y, por supuesto, un inglés e italiano mucho más vivos.</p>
+          <div class="area-photos">
+            <div class="area-photo">
+              <!-- <img src="viaje1.jpg" alt="Viaje"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="viaje2.jpg" alt="Viaje"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="viaje3.jpg" alt="Viaje"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="viaje4.jpg" alt="Viaje"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Liderazgo -->
+    <div class="glass area-card">
+      <button class="area-header" aria-expanded="false">
+        <div class="area-emoji">🌟</div>
+        <span class="area-title">Liderazgo</span>
+        <svg class="area-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="area-body">
+        <div class="area-inner">
+          <p class="area-desc">Me interesa el liderazgo creativo: cómo guiar equipos, facilitar procesos de diseño colaborativo y llevar proyectos desde la idea hasta el resultado. Disfruto tanto del trabajo individual como del trabajo en equipo cuando hay una visión clara.</p>
+          <div class="area-photos">
+            <div class="area-photo">
+              <!-- <img src="liderazgo1.jpg" alt="Liderazgo"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="liderazgo2.jpg" alt="Liderazgo"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Packaging -->
+    <div class="glass area-card">
+      <button class="area-header" aria-expanded="false">
+        <div class="area-emoji">📦</div>
+        <span class="area-title">Packaging</span>
+        <svg class="area-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="area-body">
+        <div class="area-inner">
+          <p class="area-desc">El packaging es donde la función y la estética se tocan: diseñar envases que protejan, comuniquen y seduzcan al mismo tiempo. Me atrae especialmente el trabajo con materiales, la estructura y la experiencia de unboxing.</p>
+          <div class="area-photos">
+            <div class="area-photo">
+              <!-- <img src="pack1.jpg" alt="Packaging"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="pack2.jpg" alt="Packaging"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="pack3.jpg" alt="Packaging"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="pack4.jpg" alt="Packaging"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <span>Foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Creación de sitios web -->
+    <div class="glass area-card">
+      <button class="area-header" aria-expanded="false">
+        <div class="area-emoji">💻</div>
+        <span class="area-title">Creación de sitios web</span>
+        <svg class="area-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="area-body">
+        <div class="area-inner">
+          <p class="area-desc">Diseño y desarrollo sitios web desde cero: wireframes en Figma, maquetado en HTML/CSS/JS y, cuando el proyecto lo requiere, lógica de servidor con PHP. Me importa que la experiencia sea tan linda de usar como de ver.</p>
+          <div class="area-photos">
+            <div class="area-photo">
+              <!-- <img src="web1.jpg" alt="Web"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Foto</span>
+            </div>
+            <div class="area-photo">
+              <!-- <img src="web2.jpg" alt="Web"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Foto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
 </div><!-- /wrapper -->
 
 <!-- ══════════ BOTTOM NAV ══════════ -->
@@ -763,6 +1050,12 @@
     </svg>
     Proyectos
   </a>
+  <a href="#intereses">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+    Intereses
+  </a>
   <a href="#contacto">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -786,6 +1079,22 @@
   }, { threshold: 0.45 });
 
   sections.forEach(s => observer.observe(s));
+
+  // Acordeón áreas de interés
+  document.querySelectorAll('.area-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.area-card');
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.area-card').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.area-header').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        card.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 </script>
 
 </body>
